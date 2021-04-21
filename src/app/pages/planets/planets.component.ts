@@ -9,17 +9,23 @@ import { SwapiService } from 'src/swapi.service';
 export class PlanetsComponent implements OnInit {
   wookie!: boolean;
   planets?: any;
+  params?: string;
+  loading: boolean = true;
 
   constructor(private _swapi: SwapiService) { }
 
-  ngOnInit() {
-    this.wookie = false;
-
-    this._swapi.getAllPlanets().subscribe(data => {
+  loadData(params?: string) {
+    this.loading = true;
+    this._swapi.getPluralResources("planets", params).subscribe(data => {
       this.planets = data;
       this.planets = this.planets.results;
-      console.log(this.planets);
+      this.loading = false;
     })
+  }
+
+  ngOnInit() {
+    this.wookie = false;
+    this.loadData();
   }
 
 }

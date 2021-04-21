@@ -1,12 +1,16 @@
 <h1 nz-typography>Planets</h1>
 <nz-input-group [nzSuffix]="suffixIconSearch">
-  <input type="text" nz-input placeholder="Search for a planet's name..." />
+  <input type="text" [(ngModel)]="params" nz-input placeholder="Search for a planet's name..." />
 </nz-input-group>
 <ng-template #suffixIconSearch>
-  <i nz-icon nzType="search"></i>
+  <button nz-button nzType="primary" nzSearch (click)="loadData(params)">
+    <i nz-icon nzType="search"></i>
+  </button>
 </ng-template>
 <br />
 <br />
+<nz-spin style="display: grid; place-items: center;" *ngIf="loading" nzSimple [nzSize]="'large'"></nz-spin>
+<nz-empty *ngIf="planets <= 0"></nz-empty>
 <nz-list nzGrid *ngIf="planets">
   <div nz-row [nzGutter]="16">
     <div nz-col [nzXXl]="8" [nzXl]="8" [nzLg]="8" [nzMd]="12" [nzSm]="12" [nzXs]="24" *ngFor="let planet of planets">
@@ -38,4 +42,3 @@
     </div>
   </div>
 </nz-list>
-
