@@ -1,3 +1,7 @@
+# Star Wars Database
+Oi! Esse é um projeto para estudo de consumo de API's com Angular.
+Nele uso Angular 11, a biblioteca de componentes [NG-ZORRO](https://ng.ant.design/components/overview/en) e consumo os dados da [SWAPI](https://swapi.dev/documentation).
+
 # SwApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.9.
