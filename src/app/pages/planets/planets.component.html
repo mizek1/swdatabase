@@ -3,7 +3,7 @@
   <input type="text" [(ngModel)]="params" nz-input placeholder="Search for a planet's name..." />
 </nz-input-group>
 <ng-template #suffixIconSearch>
-  <button nz-button nzType="primary" nzSearch (click)="loadData(params)">
+  <button nz-button nzType="primary" nzSearch (click)="loadData(page, params)">
     <i nz-icon nzType="search"></i>
   </button>
 </ng-template>
@@ -42,3 +42,7 @@
     </div>
   </div>
 </nz-list>
+<div style="display: grid; place-items: center; margin-bottom: 1em">
+  <ng-template #totalTemplate><span>{{total}} planets</span></ng-template><br />
+  <nz-pagination [(nzPageIndex)]="page" [nzTotal]="total" [nzSize]="'small'" (nzPageIndexChange)="nextPage($event)" [nzShowTotal]="totalTemplate"></nz-pagination>
+</div>

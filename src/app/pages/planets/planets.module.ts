@@ -14,6 +14,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { PlanetsRoutingModule } from './planets-routing.module';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { PlanetsRoutingModule } from './planets-routing.module';
     NzSpinModule,
     NzButtonModule,
     NzEmptyModule,
+    NzPaginationModule,
   ],
   declarations: [
     PlanetsComponent,

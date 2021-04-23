@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 export class SwapiService {
 
 baseURL: string = `https://swapi.dev/api`;
-page: number = 1;
 wookieTranslator: boolean = false;
 
 constructor(private http: HttpClient) { }
@@ -20,9 +19,14 @@ getSingleResource(path: string, id: number, wookie: boolean) {
 }
 
 // getPluralResources busca os dados de algum tipo utilizando paramêtros de pesquisa
-getPluralResources(path: string, params?: string) {
-  if (params) return this.http.get(`${this.baseURL}/${path}/?search=${params}`)
-  return this.http.get(`${this.baseURL}/${path}/`)
+getPluralResources(path: string, page?: number, params?: string) {
+  var searchURL: string = `${this.baseURL}/${path}/`;
+  if (params) {
+    searchURL = searchURL + `?search=${params}`;
+  } else {
+    searchURL = searchURL + `?page=${page}`;
+  }
+  return this.http.get(searchURL)
 }
 
 }
