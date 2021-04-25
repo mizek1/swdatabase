@@ -11,6 +11,10 @@ wookieTranslator: boolean = false;
 
 constructor(private http: HttpClient) { }
 
+getObjectByPath(path: string) {
+  return this.http.get(path)
+}
+
 // getSingleResource busca por algum tipo de informação
 // utilizando um id e pode trazer a informação traduzida para wookieano
 getSingleResource(path: string, id: number, wookie: boolean) {

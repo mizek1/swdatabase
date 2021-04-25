@@ -13,31 +13,9 @@
 <nz-empty *ngIf="planets <= 0"></nz-empty>
 <nz-list nzGrid *ngIf="planets">
   <div nz-row [nzGutter]="16">
-    <div nz-col [nzXXl]="8" [nzXl]="8" [nzLg]="8" [nzMd]="12" [nzSm]="12" [nzXs]="24" *ngFor="let planet of planets">
+    <div nz-col [nzXXl]="8" [nzXl]="8" [nzLg]="8" [nzMd]="12" [nzSm]="12" [nzXs]="24" *ngFor="let planet of planets;">
       <nz-list-item>
-        <nz-card nzHoverable [nzTitle]="cardTitle">
-          <ng-template #cardTitle>
-            <h3 nz-typography>{{planet.name}}</h3>
-          </ng-template>
-          <nz-divider nzPlain [nzText]="divider1" nzOrientation="right" style="color:grey;">
-            <ng-template #divider1><i nz-icon nzType="heat-map"></i> Geomorphology</ng-template>
-          </nz-divider>
-            <span nz-typography><strong>Rotation period: </strong>{{planet.rotation_period}}</span><br/>
-            <span nz-typography><strong>Orbital period: </strong>{{planet.orbital_period}}</span><br/>
-            <span nz-typography><strong>Diameter: </strong>{{planet.diameter}}</span><br/>
-            <span nz-typography><strong>Gravity: </strong>{{planet.gravity}}</span><br/>
-            <span nz-typography><strong>Terrain: </strong>{{planet.terrain}}</span><br/>
-            <span nz-typography><strong>Surface water: </strong>{{planet.surface_water}}</span><br/>
-          <nz-divider nzPlain [nzText]="divider2" nzOrientation="right" style="color:grey;">
-            <ng-template #divider2><i nz-icon nzType="team"></i> Society</ng-template>
-          </nz-divider>
-            <span nz-typography><strong>Population: </strong>{{planet.population}}</span><br/>
-            <span nz-typography><strong>Residents </strong>soon</span><br/>
-          <nz-divider nzPlain [nzText]="divider3" nzOrientation="right" style="color:grey;">
-            <ng-template #divider3><i nz-icon nzType="video-camera"></i> Films</ng-template>
-          </nz-divider>
-            <span nz-typography>soon</span><br/>
-        </nz-card>
+        <app-planetCard [planet]="planet"></app-planetCard>
       </nz-list-item>
     </div>
   </div>
